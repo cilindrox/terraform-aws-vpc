@@ -44,6 +44,12 @@ resource "aws_vpc" "this" {
     var.tags,
     var.vpc_tags,
   )
+
+  lifecycle {
+    ignore_changes = [
+      tags,
+    ]
+  }
 }
 
 resource "aws_vpc_ipv4_cidr_block_association" "this" {
@@ -144,6 +150,12 @@ resource "aws_internet_gateway" "this" {
     var.tags,
     var.igw_tags,
   )
+
+  lifecycle {
+    ignore_changes = [
+      tags,
+    ]
+  }
 }
 
 resource "aws_egress_only_internet_gateway" "this" {
@@ -158,6 +170,12 @@ resource "aws_egress_only_internet_gateway" "this" {
     var.tags,
     var.igw_tags,
   )
+
+  lifecycle {
+    ignore_changes = [
+      tags,
+    ]
+  }
 }
 
 ###############
@@ -212,6 +230,12 @@ resource "aws_route_table" "public" {
     var.tags,
     var.public_route_table_tags,
   )
+
+  lifecycle {
+    ignore_changes = [
+      tags,
+    ]
+  }
 }
 
 resource "aws_route" "public_internet_gateway" {
@@ -254,6 +278,12 @@ resource "aws_route_table" "private" {
     var.tags,
     var.private_route_table_tags,
   )
+
+  lifecycle {
+    ignore_changes = [
+      tags,
+    ]
+  }
 }
 
 #################
@@ -390,6 +420,12 @@ resource "aws_subnet" "public" {
     var.tags,
     var.public_subnet_tags,
   )
+
+  lifecycle {
+    ignore_changes = [
+      tags,
+    ]
+  }
 }
 
 #################
@@ -417,6 +453,12 @@ resource "aws_subnet" "private" {
     var.tags,
     var.private_subnet_tags,
   )
+
+  lifecycle {
+    ignore_changes = [
+      tags,
+    ]
+  }
 }
 
 ##################
